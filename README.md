@@ -29,6 +29,20 @@ cluster의 구축은 매우 간단하고 빠르게 완료되었다 이제 kubern
   현재 버전으로는 replicationcontroller의 생성이 kubectl run 명령어로 만들어지지 않는다는것을 알 수 있다.
   https://stackoverflow.com/questions/36205164/kubectl-run-does-not-create-replicacontroller
   
-  
+### - replication controller vs replica-set and Deployment
+ 이전 버전의 kubernetes에서는 replica-set이 아닌 replication controller라는 오브젝트를 통해 pod의 갯수를 유지하였습니다.
+ 그러나 k8s의 버전이 올라감의 따라 replication controller는 deprecated 되어 사용되지 않으며 그 대신 replica-set이 사용됨
+ 
+ replication controller이든 replica-set이든 그 목적은 일정 개수의 pod를 유지하는 것임.
+ spof를 방지하는데에 효율적으로 관리하기 위한 오브젝트라고 이해하였습니다.
+ 
+ ![image](https://user-images.githubusercontent.com/98390642/151136605-477fc989-36d7-4d42-943e-48ee11d458c6.png)
+
+ 
+ 실제 kubernetes 운영 환경에서는 대부분 replica-set과 pod의 정보를 정의하는 Deployment 라는 오브젝트를 사용합니다.
+ 
+ ![image](https://user-images.githubusercontent.com/98390642/151137155-2e7a4fae-6613-44ac-916c-2afdd08dbdc7.png)
+
+ Deployment를 사용하는 핵심적인 이유 중 하나는 application의 업데이트와 배포를 더욱 편하게 만들기 위해서입니다.
   
 ## 3. k8s logical component
