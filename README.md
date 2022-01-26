@@ -1,6 +1,9 @@
 # Kubernetes In Action - Chapter 2
 ## 1. k8s 설치
 vmware 환경에서 ubunto linux vm을 설치하고 해당 vm에 kubernetes 설치를 진행할 때에는 overlay 파라미터 값등 파라미터값을 넣어주고, 컨테이너 런타임 설치 및 설정, memory swap옵션을 disable하는등 사전에 필요한 작업과정들이 많이 있었으나 Google Cloud를 이용하여 GKE를 배포할때는 몇번의 클릭으로 Kubernetes 환경을 만들 수 있었다.
+
+
+
 다음은 나의 GKE cluster의 간단한 정보들이다
 ![k8s 클러스터 이미지](https://user-images.githubusercontent.com/98390642/151022339-a28c9508-cd96-48d7-8422-3e6bd28e0b8e.png)
 ![k8s cluster node info](https://user-images.githubusercontent.com/98390642/151022362-753b2f02-2c1a-46d1-8813-c5d16cecaedb.png)
@@ -14,6 +17,8 @@ vmware 환경에서 ubunto linux vm을 설치하고 해당 vm에 kubernetes 설�
 ![image](https://user-images.githubusercontent.com/98390642/151024097-2258683d-4ed7-4117-b1a7-7a9e7567c253.png)
 
 해당 이미지가 잘 설명해준다.
+
+https://bcho.tistory.com/1255?category=731548
 
 각 노드들의 정보는 
 kubectl describe node <node-name>  
@@ -43,6 +48,6 @@ cluster의 구축은 매우 간단하고 빠르게 완료되었다 이제 kubern
  
  ![image](https://user-images.githubusercontent.com/98390642/151137155-2e7a4fae-6613-44ac-916c-2afdd08dbdc7.png)
 
- Deployment를 사용하는 핵심적인 이유 중 하나는 application의 업데이트와 배포를 더욱 편하게 만들기 위해서입니다.
+ Deployment를 사용하는 핵심적인 이유 중 하나는 application의 업데이트와 배포를 더욱 편하게 만들기 위해서이다.
   
 
