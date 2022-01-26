@@ -23,7 +23,7 @@ kubectl describe node <node-name>
 ![kubectl des node-2](https://user-images.githubusercontent.com/98390642/151025091-c3eb7f7b-3d25-4d61-81c6-de7095a7f09b.png)
 ![kubectl des node-3](https://user-images.githubusercontent.com/98390642/151025093-363f2927-7408-42f6-b9e8-784c4b6d2c23.png)
 
-## 2. k8s 실행 및 접근
+## 2.  k8s logical component
 cluster의 구축은 매우 간단하고 빠르게 완료되었다 이제 kubernetes에 애플리케이션을 실행해보도록 하자
 참고로하고있는 kubernetes in action에서는 kubctl run 명령어를 통해 replicationcontorller를 생성하고있지만
   현재 버전으로는 replicationcontroller의 생성이 kubectl run 명령어로 만들어지지 않는다는것을 알 수 있다.
@@ -45,4 +45,4 @@ cluster의 구축은 매우 간단하고 빠르게 완료되었다 이제 kubern
 
  Deployment를 사용하는 핵심적인 이유 중 하나는 application의 업데이트와 배포를 더욱 편하게 만들기 위해서입니다.
   
-## 3. k8s logical component
+
