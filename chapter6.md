@@ -50,4 +50,42 @@ hostPath 볼륨의 콘텐츠는 파드가 종료되어도 삭제되지 않음.
 
 이 볼륨은 파드가 어떤 노드에 스케줄링 되느냐에 따라 민감하기 때문에 일반적인 파드에 사용하는것은 좋지 않음 .
 
-## 5. Persistent
+## 5. Persistent Storage
+파드의 컨테이너는 어떤 클러스터 노드에서도 접근이 필요하기 때문에  NAS(Network Attached Storage) 유형에 저장돼야함.
+이러한 목적의 Persistent Storage는 Cloud 환경에서 제공하는 GCE Persistent Disk, AWS Elastic Block Store Volume 과 NFS 볼륨, 그리고 ISCSI, GlusterFS, rdb, fc 등등 있다.
+![image](https://user-images.githubusercontent.com/98390642/156360633-e1c6fc27-d8c6-4826-98a0-72512961533a.png)
+![image](https://user-images.githubusercontent.com/98390642/156361800-5ee758f2-6e86-499c-a3e2-bf2cf7114535.png)
+
+persistent 볼륨은 각 볼륨 유형별로 필요한 속성 세부정보가 필요하다.
+하지만 이러한 인프라스트럭처를 참조하는 것은 쿠버네티스가 추구하는 것과는 거리가 멀다.
+
+이 문제점은 Persistent Volume Claim으로 개선 할 수 있으며, 동일한 파드 정의를 다른 클러스터에서 사용가능하도록 만들어줌
+
+## 6. Persistent Volume, Persistent Volume Claim 
+인프라스트럭처의 세부사항을 처리하지 않고 애플리케이션이 쿠버네티스 클러스터에 스토리지를 요청할 수 있도록 하기 위해 Persistent Volume 과 Persistent Volume Claim 이 도입됨.
+
+![image](https://user-images.githubusercontent.com/98390642/156362724-d1bf51a6-6937-465e-8ada-af7dbcd65ec4.png)
+개발자는 Persistent Volume Claim을 통하여 Persistent Volume에 바인딩되어 볼륨을 사용할 수 있다.
+PersistentVolumeClaim은 인프라스트럭처의 세부사항이 참조되지 않는다.
+인프라스트럭처의 세부사항을 참조하여 Persistent Volume을 생성하는것은 관리자의 역할이다.
+
+![image](https://user-images.githubusercontent.com/98390642/156363258-57989be1-2be6-4908-b294-fa3b8c8a5ba7.png)
+
+![image](https://user-images.githubusercontent.com/98390642/156363331-8b64fa83-2ce5-4578-88cc-ec236063faf6.png)
+
+
+지금까지는 Persistent Volume을 관리자가 미리 프로비저닝한 상황에서 Persistent Volume Claim을 사용할 수 있다.
+그러나 동적인 프로비저닝을 통하여 Persistent Volume을 자동으로 프로비저닝이 가능하다.
+
+![image](https://user-images.githubusercontent.com/98390642/156363811-6a6d4831-e27d-478a-8f1c-0bf753215cb0.png)
+
+동적인 프로비저닝을 위해서 StorageClass 라는 오브젝트를 사용한다.
+![image](https://user-images.githubusercontent.com/98390642/156364330-1de81896-af15-463d-8a11-09361209ebca.png)
+![image](https://user-images.githubusercontent.com/98390642/156364392-051b5728-ba2c-4d74-ae1a-a04c3f415830.png)
+
+
+
+
+
+
+
