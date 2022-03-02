@@ -15,7 +15,7 @@
 2. gitRepo
 3. hostPath
 4. PersistentDisk
-5. PersistentVolumeClaim
+5. Persistent Volume, PersistentVolumeClaim
 
 ## 2. emptyDir
 컨테이너들끼리 데이터를 공유하기 위해서 볼륨을 사용하는 것 (가장 간단한 방법)
